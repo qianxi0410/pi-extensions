@@ -1,0 +1,27 @@
+# Dependencies
+node_modules
+packages/*/node_modules
+.pnpm-store
+
+# Build and test output
+dist
+coverage
+*.tsbuildinfo
+*.log
+
+# Pi runtime state
+.pi/
+**/.pi/
+
+# Environment
+.env
+.env.*
+
+# Editors and OS
+.DS_Store
+.vscode/
+.zed/
+.idea/
+*.swp
+*.swo
+*~

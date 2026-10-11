@@ -1,0 +1,39 @@
+{
+  "name": "pi-extensions",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Monorepo of Pi extensions and packages.",
+  "type": "module",
+  "scripts": {
+    "new": "node scripts/new-package.mjs",
+    "fmt": "oxfmt .",
+    "fmt:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "typecheck": "tsc --noEmit -p tsconfig.base.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "check": "pnpm run fmt:check && pnpm run lint && pnpm run typecheck",
+    "version:set": "node scripts/version.mjs",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-ai": "catalog:",
+    "@earendil-works/pi-coding-agent": "catalog:",
+    "@earendil-works/pi-tui": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "husky": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "typebox": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@11.28.5"
+}

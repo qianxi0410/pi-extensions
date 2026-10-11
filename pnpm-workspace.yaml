@@ -1,0 +1,30 @@
+# Every Pi package lives in packages/*. The root package.json holds the shared
+# toolchain; packages reference these versions through the `catalog:` protocol
+# so a dependency is bumped in exactly one place.
+packages:
+  - "packages/*"
+
+# Dependency build scripts are blocked by default; approve only what is needed.
+# esbuild ships the binary Vitest uses. The two transitive Pi dependencies are
+# explicitly denied so pnpm does not report them as pending on every install.
+allowBuilds:
+  esbuild: true
+  "@google/genai": false
+  protobufjs: false
+
+catalog:
+  # Pi host-provided packages. Pi injects these at runtime, so packages must
+  # declare them as peerDependencies with a "*" range (never bundle them).
+  "@earendil-works/pi-ai": "^1.1.0"
+  "@earendil-works/pi-coding-agent": "^1.1.0"
+  "@earendil-works/pi-tui": "^1.1.0"
+  "typebox": "^1.3.36"
+
+  # Shared toolchain.
+  "@types/node": "^26.6.5"
+  "@vitest/coverage-v8": "^5.0.3"
+  "husky": "^9.1.7"
+  "oxfmt": "^0.72.0"
+  "oxlint": "^1.87.0"
+  "typescript": "^7.0.2"
+  "vitest": "^5.0.3"

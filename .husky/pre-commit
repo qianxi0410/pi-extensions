@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Format check, lint, and typecheck. Non-destructive: run `pnpm fmt` and
+# `pnpm lint:fix` to apply fixes, then stage the result.
+echo "Checking formatting, lint, and types..."
+if ! pnpm run check; then
+  echo "❌ Checks failed. Run 'pnpm fmt' and 'pnpm lint:fix', then retry."
+  exit 1
+fi
